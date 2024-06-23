@@ -11,7 +11,7 @@ and ask the user to input its values.
 std::vector<int> setDonations();
 void sortPtr(std::unique_ptr<int[]>&, int);
 void showArr(std::vector<int>);
-void showArrPtr(std::unique_ptr<int[]>&);
+void showArrPtr(std::unique_ptr<int[]>&, int);
 
 int main(){
     //create the vector for a dynamically allocated array.
@@ -25,11 +25,8 @@ int main(){
     }
 
     sortPtr(donSort, size);
-
-    for (int x=0;x<size;x++){
-        std::cout<<donSort[x]<<" ";
-    }
-    
+    showArr(donations);
+    showArrPtr(donSort,size);
     return 0;
 }
 
@@ -64,5 +61,22 @@ void sortPtr(std::unique_ptr<int[]>& donations, int size){
         }
         donations[min]=donations[x];
         donations[x]=temp;
+    }
+}
+
+void showArr(std::vector<int> donations){
+    std::cout<<"\nThe donations in their recieved order were:\n";
+    std::cout<<"-----------------------------------------------\n";
+    for(int x=0;x<donations.size();x++){
+        std::cout<<"$"<<donations[x]<<"\n";
+    }
+    std::cout<<"\n";
+}
+
+void showArrPtr(std::unique_ptr<int[]>& donations, int size){
+    std::cout<<"\nAnd the sorted list of donations:\n";
+    std::cout<<"-----------------------------------------\n";
+    for(int x=0;x<size;x++){
+        std::cout<<"$"<<donations[x]<<"\n";
     }
 }
