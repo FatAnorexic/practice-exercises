@@ -4,3 +4,6 @@ should create a copy of the array, except that the element values should be reve
 in the copy. The function should return a pointer to the new array. Demonstrate the
 function in a complete program.
 */
+
+#include <iostream>
+#include <memory>
