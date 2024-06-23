@@ -7,3 +7,11 @@ function in a complete program.
 
 #include <iostream>
 #include <memory>
+
+//Function prototype
+
+int *reverse(int [], int);
+
+int main(){
+    
+}
