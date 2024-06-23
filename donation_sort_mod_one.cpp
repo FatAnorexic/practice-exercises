@@ -25,6 +25,10 @@ int main(){
     }
 
     sortPtr(donSort, size);
+
+    for (int x=0;x<size;x++){
+        std::cout<<donSort[x]<<" ";
+    }
     
     return 0;
 }
@@ -46,5 +50,19 @@ std::vector<int> setDonations(){
 }
 
 void sortPtr(std::unique_ptr<int[]>& donations, int size){
+    int min, temp;
 
+    //use selection sort to sort the refrenced array
+    for(int x=0;x<size-1;x++){
+        min=x;
+        temp=donations[x];
+        for(int y=x+1;y<size;y++){
+            if(donations[y]<temp){
+                temp=donations[y];
+                min=y;
+            }
+        }
+        donations[min]=donations[x];
+        donations[x]=temp;
+    }
 }
